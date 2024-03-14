@@ -83,7 +83,7 @@ jobs:
         push: true
         tags: |
           ${{ steps.meta.outputs.tags }}
-          ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-${{github.sha}}
+          ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-tag1
         labels: ${{ steps.meta.outputs.labels }}
 
     - name: Build ephemeral DBC provider container and push to ttl.sh
@@ -97,13 +97,13 @@ jobs:
         file: ./Dockerfile
         context: .
         push: true
-        tags: "ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-${{github.sha}}"
+        tags: "ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-tag1"
         labels: ${{ steps.meta.outputs.labels }}
 
     - name: Posting message
       uses: eclipse-kuksa/kuksa-actions/post-container-location@2
       with:
-        image: ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-${{github.sha}}
+        image: ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-tag1
 
 
   run-can-provider-tests:
