@@ -105,10 +105,6 @@ jobs:
       with:
         image: ttl.sh/eclipse-kuksa/kuksa-can-provider/can-provider-${{github.sha}}
 
-    - name: Init velocitas project
-      run: |
-          velocitas init
-
     - name: Setup git config
       shell: bash
       run: |
