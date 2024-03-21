@@ -23,6 +23,10 @@ RUN echo "-- Running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 # It seems 3.10-slim-bookworm shall have gcc, but for aarch64 where it is needed
 # it does not seem to be present, needed to build bitstruct
 # https://github.com/docker-library/python/blob/master/3.10/slim-bookworm/Dockerfile
+
+FROM --platform=$TARGETPLATFORM python:3.10-slim-bullseye@sha256:1ee6094f44c67781fa9533a4215f44f80dd3f43a68751ad2c855712116c03b05
+RUN apt-get update && apt-get install -y binutils
+
 RUN apt update && apt -y install \
     binutils \
     git \
@@ -80,4 +84,4 @@ ENV VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker
 ENV PYTHONUNBUFFERED=yes
 
 ENTRYPOINT ["./dbcfeeder"]
-CMD ["--no-val2dbc", "--dbc2val", "--use-socketcan"]
+CMD ["--val2dbc", "--dbc2val", "--use-socketcan"]
