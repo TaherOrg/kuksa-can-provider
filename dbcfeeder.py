@@ -130,7 +130,7 @@ class Feeder:
     """
 
     def __init__(self, kuksa_client: clientwrapper.ClientWrapper,
-                 elmcan_config: Dict[str, Any], dbc2vss: bool = True, vss2dbc: bool = False):
+                 elmcan_config: Dict[str, Any], dbc2vss: bool = True, vss2dbc: bool = True):
         self._running: bool = False
         self._reader: Optional[CanReader] = None
         self._mapper: Optional[dbc2vssmapper.Mapper] = None
