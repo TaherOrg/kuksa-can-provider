@@ -616,7 +616,7 @@ def main(argv):
         elmcan_config = config[CONFIG_SECTION_ELMCAN]
 
     kuksa_val_client = _get_kuksa_val_client(args, config)
-    feeder = Feeder(kuksa_val_client, elmcan_config, dbc2vss=use_dbc2val, vss2dbc=use_val2dbc)
+    feeder = Feeder(kuksa_val_client, elmcan_config, dbc2vss=True, vss2dbc=True)
 
     def signal_handler(signal_received, *_):
         log.info("Received signal %s, stopping...", signal_received)
