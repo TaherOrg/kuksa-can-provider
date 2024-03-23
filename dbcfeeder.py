@@ -130,7 +130,7 @@ class Feeder:
     """
 
     def __init__(self, kuksa_client: clientwrapper.ClientWrapper,
-                 elmcan_config: Dict[str, Any], dbc2vss: bool = True, vss2dbc: bool = True):
+                 elmcan_config: Dict[str, Any], dbc2vss: bool = True, vss2dbc: bool = False):
         self._running: bool = False
         self._reader: Optional[CanReader] = None
         self._mapper: Optional[dbc2vssmapper.Mapper] = None
@@ -548,7 +548,7 @@ def main(argv):
         use_val2dbc = False
     else:
         # By default disabled
-        use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=True)
+        use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=False)
     log.info("VAL2DBC mode is: %s", use_val2dbc)
 
     if not (use_dbc2val or use_val2dbc):
@@ -616,7 +616,7 @@ def main(argv):
         elmcan_config = config[CONFIG_SECTION_ELMCAN]
 
     kuksa_val_client = _get_kuksa_val_client(args, config)
-    feeder = Feeder(kuksa_val_client, elmcan_config, dbc2vss=True, vss2dbc=True)
+    feeder = Feeder(kuksa_val_client, elmcan_config, dbc2vss=use_dbc2val, vss2dbc=use_val2dbc)
 
     def signal_handler(signal_received, *_):
         log.info("Received signal %s, stopping...", signal_received)
