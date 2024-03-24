@@ -527,7 +527,6 @@ def main(argv):
     
     use_dbc2val = True
     use_val2dbc = True
-    use-socketcan = True
     
     if args.dbc2val:
         use_dbc2val = True
