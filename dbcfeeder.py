@@ -539,6 +539,7 @@ def main(argv):
     else:
         # By default enabled
         #use_dbc2val = config.getboolean(CONFIG_SECTION_GENERAL, "dbc2val", fallback=True)
+        use_dbc2val = True
     log.info("DBC2VAL mode is: %s", use_dbc2val)
 
     if args.val2dbc:
@@ -552,6 +553,7 @@ def main(argv):
     else:
         # By default disabled
         #use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=False)
+        use_val2dbc = True
     log.info("VAL2DBC mode is: %s", use_val2dbc)
 
     if not (use_dbc2val or use_val2dbc):
