@@ -73,6 +73,10 @@ ENV PATH="/dist:$PATH"
 # useful dumps about feeding values
 ENV LOG_LEVEL="info"
 
+ENV USE_DBC2VAL=True
+ENV USE_VAL2DBC=True
+
+
 # Vehicle Data Broker host:port
 #ENV VDB_ADDRESS="localhost:55555"
 # Override VDB_ADDRESS port if set
