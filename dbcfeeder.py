@@ -524,7 +524,11 @@ def main(argv):
     parser = _get_command_line_args_parser()
     args = parser.parse_args()
     config = _parse_config(args.config)
-
+    
+    use_dbc2val = True
+    use_val2dbc = True
+    use-socketcan = True
+    
     if args.dbc2val:
         use_dbc2val = True
     elif args.no_dbc2val:
