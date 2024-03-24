@@ -527,7 +527,8 @@ def main(argv):
     
     use_dbc2val = True
     use_val2dbc = True
-    
+
+    '''
     if args.dbc2val:
         use_dbc2val = True
     elif args.no_dbc2val:
@@ -554,7 +555,9 @@ def main(argv):
         # By default disabled
         #use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=False)
         use_val2dbc = True
+    '''
     log.info("VAL2DBC mode is: %s", use_val2dbc)
+    log.info("DBC2VAL mode is: %s", use_dbc2val)
 
     if not (use_dbc2val or use_val2dbc):
         parser.error("Either DBC2VAL or VAL2DBC must be enabled")
