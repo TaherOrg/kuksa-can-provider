@@ -135,7 +135,7 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        tags: ghcr.io/taher-org/kuksa-can-provider:tag-4
+        tags: ghcr.io/taher-org/kuksa-can-provider:test
         push: true
         platforms: "linux/arm64" 
 
