@@ -525,10 +525,9 @@ def main(argv):
     args = parser.parse_args()
     config = _parse_config(args.config)
     
-    use_dbc2val = True
-    use_val2dbc = True
+    #use_dbc2val = True
+    #use_val2dbc = True
 
-    '''
     if args.dbc2val:
         use_dbc2val = True
     elif args.no_dbc2val:
@@ -539,8 +538,8 @@ def main(argv):
         use_dbc2val = False
     else:
         # By default enabled
-        #use_dbc2val = config.getboolean(CONFIG_SECTION_GENERAL, "dbc2val", fallback=True)
-        use_dbc2val = True
+        use_dbc2val = config.getboolean(CONFIG_SECTION_GENERAL, "dbc2val", fallback=True)
+        #use_dbc2val = True
     log.info("DBC2VAL mode is: %s", use_dbc2val)
 
     if args.val2dbc:
@@ -553,9 +552,9 @@ def main(argv):
         use_val2dbc = False
     else:
         # By default disabled
-        #use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=False)
-        use_val2dbc = True
-    '''
+        use_val2dbc = config.getboolean(CONFIG_SECTION_GENERAL, "val2dbc", fallback=True)
+        #use_val2dbc = True
+    
     log.info("VAL2DBC mode is: %s", use_val2dbc)
     log.info("DBC2VAL mode is: %s", use_dbc2val)
 
