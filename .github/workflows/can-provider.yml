@@ -41,14 +41,6 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - uses: de-vri-es/setup-git-credentials@v2
-      with:
-        credentials: https://user:${{ secrets.GITHUB_TOKEN }}@github.com/
-
-    - name: Init velocitas project
-      run: |
-        velocitas init
-
     - name: Docker meta
       id: meta
       uses: docker/metadata-action@v5
