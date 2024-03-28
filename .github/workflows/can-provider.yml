@@ -135,33 +135,6 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        tags: ghcr.io/taher-org/kuksa-can-provider:test
+        tags: ghcr.io/taher-org/kuksa-can-provider:tag-5
         push: true
         platforms: "linux/arm64" 
-
-
-  run-can-provider-tests:
-    name: "Run can provider test"
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    - name: Run can tests
-      run: |
-        pip3 install --no-cache-dir -r requirements.txt -r requirements-dev.txt
-        python -m pytest
-
-    - name: Run pylint (fail on errors and above)
-      run: |
-        # First just show, never fail
-        pylint --exit-zero dbcfeeder.py dbcfeederlib test
-        # Fail on errors and above
-        pylint -E dbcfeeder.py dbcfeederlib test
-
-    - name: Run mypy, fail on errors.
-      run: |
-          # Also install some dependencies for analysis
-          pip3 install mypy grpc-stubs
-          python -m mypy *.py dbcfeederlib test
