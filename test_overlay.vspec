@@ -1,0 +1,60 @@
+Vehicle.Immobilizer.Inhibitor.InhibitorType0.UnlockState:
+  type: actuator
+  datatype: string
+  dbc2vss:
+    interval_ms: 100
+    signal: InhibitorType0_UnlockState 
+    transform:
+       mapping:
+        - from: Others
+          to: 'Other'
+        - from: Inhibit
+          to: 'Inhibit'
+        - from: Release
+          to: 'Release'
+        - from: Default
+          to: 'Default'
+   
+  vss2dbc:
+    signal: InhibitorType0_UnlockState
+    transform:
+       mapping:
+        - from: Others
+          to: Others
+        - from: Inhibit
+          to: Inhibit
+        - from: Release
+          to: Release
+        - from: Default
+          to: Default
+
+
+Vehicle.Immobilizer.KeySystems.Key0.PermissionState:
+  type: actuator
+  datatype: string
+  dbc2vss:
+    signal: Key0_PermissionState
+    transform:
+       mapping:
+        - from: Others
+          to: 'Others'
+        - from: Inhibit
+          to: 'Inhibit'
+        - from: Release
+          to: 'Release'
+        - from: Default
+          to: 'Default'
+
+  vss2dbc:
+    signal: Key0_PermissionState
+    transform:
+       mapping:
+        - from: Others
+          to: Others
+        - from: Inhibit
+          to: Inhibit
+        - from: Release
+          to: Release
+        - from: Default
+          to: Default
+ 

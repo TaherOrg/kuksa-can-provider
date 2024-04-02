@@ -1,0 +1,181 @@
+{
+  "Vehicle": {
+    "children": {
+      "Immobilizer": {
+        "children": {
+          "Config": {
+            "datatype": "string",
+            "description": "Current Immobilizer config (how the In-/Outputs are logically connected)",
+            "type": "attribute"
+          },
+          "Inhibitor": {
+            "children": {
+              "InhibitorType0": {
+                "children": {
+                  "Group": {
+                    "datatype": "string",
+                    "description": "Group of the Inhibitor system",
+                    "type": "attribute"
+                  },
+                  "Name": {
+                    "datatype": "string",
+                    "description": "Name of the Inhibitor system",
+                    "type": "attribute"
+                  },
+                  "UnlockState": {
+                    "allowed": [
+                      "Others",
+                      "Inhibit",
+                      "Release",
+                      "Default"
+                    ],
+                    "datatype": "string",
+                    "dbc2vss": {
+                      "interval_ms": 100,
+                      "signal": "InhibitorType0_UnlockState",
+                      "transform": {
+                        "mapping": [
+                          {
+                            "from": "Others",
+                            "to": "Other"
+                          },
+                          {
+                            "from": "Inhibit",
+                            "to": "Inhibit"
+                          },
+                          {
+                            "from": "Release",
+                            "to": "Release"
+                          },
+                          {
+                            "from": "Default",
+                            "to": "Default"
+                          }
+                        ]
+                      }
+                    },
+                    "default": "Default",
+                    "description": "State of inhibitor system. (Default, Release, Inhibit, Others)",
+                    "type": "actuator",
+                    "vss2dbc": {
+                      "signal": "InhibitorType0_UnlockState",
+                      "transform": {
+                        "mapping": [
+                          {
+                            "from": "Others",
+                            "to": "Others"
+                          },
+                          {
+                            "from": "Inhibit",
+                            "to": "Inhibit"
+                          },
+                          {
+                            "from": "Release",
+                            "to": "Release"
+                          },
+                          {
+                            "from": "Default",
+                            "to": "Default"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "description": "InhibitorType0 Branch",
+                "type": "branch"
+              }
+            },
+            "description": "Inhibitor Branch",
+            "type": "branch"
+          },
+          "KeySystems": {
+            "children": {
+              "Key0": {
+                "children": {
+                  "Group": {
+                    "datatype": "string",
+                    "description": "Group of the Keysystem",
+                    "type": "attribute"
+                  },
+                  "Name": {
+                    "datatype": "string",
+                    "description": "Name of the KeySystem",
+                    "type": "attribute"
+                  },
+                  "PermissionState": {
+                    "allowed": [
+                      "Others",
+                      "Inhibit",
+                      "Release",
+                      "Default"
+                    ],
+                    "datatype": "string",
+                    "dbc2vss": {
+                      "signal": "Key0_PermissionState",
+                      "transform": {
+                        "mapping": [
+                          {
+                            "from": "Others",
+                            "to": "Others"
+                          },
+                          {
+                            "from": "Inhibit",
+                            "to": "Inhibit"
+                          },
+                          {
+                            "from": "Release",
+                            "to": "Release"
+                          },
+                          {
+                            "from": "Default",
+                            "to": "Default"
+                          }
+                        ]
+                      }
+                    },
+                    "default": "Default",
+                    "description": "State of the key system. (Default, Release, Inhibit, Others)",
+                    "type": "actuator",
+                    "vss2dbc": {
+                      "signal": "Key0_PermissionState",
+                      "transform": {
+                        "mapping": [
+                          {
+                            "from": "Others",
+                            "to": "Others"
+                          },
+                          {
+                            "from": "Inhibit",
+                            "to": "Inhibit"
+                          },
+                          {
+                            "from": "Release",
+                            "to": "Release"
+                          },
+                          {
+                            "from": "Default",
+                            "to": "Default"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "description": "KeySystems Key0 branch",
+                "type": "branch"
+              }
+            },
+            "description": "KeySystems Branch",
+            "type": "branch"
+          }
+        },
+        "description": "All Immobilizer Component",
+        "type": "branch"
+      }
+ 
+    },
+    "description": "High-level vehicle data.",
+    "type": "branch"
+  }
+}

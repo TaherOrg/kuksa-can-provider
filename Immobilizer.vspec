@@ -1,0 +1,75 @@
+Config:
+  datatype: string
+  type: attribute
+  description: Current Immobilizer config (how the In-/Outputs are logically connected)
+
+
+Inhibitor:
+  type: branch
+  description: Inhibitor Branch
+
+
+Inhibitor.InhibitorType0:
+  type: branch
+  description: InhibitorType0 Branch
+
+
+Inhibitor.InhibitorType0.Group:
+  datatype: string
+  type: attribute
+  description: Group of the Inhibitor system
+
+
+Inhibitor.InhibitorType0.Name:
+  datatype: string
+  type: attribute
+  description: Name of the Inhibitor system
+
+
+Inhibitor.InhibitorType0.UnlockState:
+  datatype: string
+  default: Default
+  type: actuator
+  allowed: ['Others', 'Inhibit', 'Release', 'Default']
+  description: State of inhibitor system. (Default, Release, Inhibit, Others)
+  Comment: Inhibitor Type0 UnlockState
+
+
+
+
+KeySystems:
+  type: branch
+  description: KeySystems Branch
+
+
+
+KeySystems.Key0:
+  type: branch
+  description: KeySystems Key0 branch
+  Comment: KeySystems branch key0
+
+KeySystems.Key0.Group:
+  datatype: string
+  type: attribute
+  description: Group of the Keysystem
+
+
+KeySystems.Key0.Name:
+  datatype: string
+  type: attribute
+  description: Name of the KeySystem
+
+
+KeySystems.Key0.PermissionState:
+  datatype: string
+  default: Default
+  type: sensor
+  allowed: ['Others', 'Inhibit', 'Release', 'Default']
+  description: State of the key system. (Default, Release, Inhibit, Others)
+  Comment: KeySystems  Permission State
+
+
+
+
+
+
